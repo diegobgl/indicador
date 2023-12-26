@@ -1,0 +1,58 @@
+<odoo>
+    <data >
+        <record id="view_indicador_form" model="ir.ui.view">
+            <field name="name">indicador.form</field>
+            <field name="model">mi_modulo.indicador</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                             <field name="tipo_indicador"/>
+                            <field name="fecha"/>
+                        </group>
+                        <footer>
+                            <button name="consultar_indicador" type="object" string="Consultar Moneda" class="btn-primary"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_indicador_tree" model="ir.ui.view">
+            <field name="name">indicador.tree</field>
+            <field name="model">mi_modulo.indicador</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <header>
+                        <button name="consultar_indicador" type="object" string="Consultar Moneda"/>
+                    </header>
+                    <field name="fecha"/>
+                    <field name="valor"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_indicador" model="ir.actions.act_window">
+            <field name="name">Indicador Económico</field>
+            <field name="res_model">mi_modulo.indicador</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="action_indicador" model="ir.actions.act_window">
+            <field name="name">Indicador Económico</field>
+            <field name="res_model">mi_modulo.indicador</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <menuitem id="menu_import_costing_main" name="Menú Dolar"/>
+
+
+        <menuitem id="mi_modulo_menu"
+                name="Indicadores Económicos"
+                action="action_indicador"
+                parent="menu_import_costing_main"
+        />
+
+    </data>
+</odoo>
